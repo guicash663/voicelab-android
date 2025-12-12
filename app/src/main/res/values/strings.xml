@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VoiceLab</string>
+    <string name="info_text">Native Android audio processing with low-latency DSP capabilities. This app demonstrates high-performance audio processing using C++ native code.</string>
+</resources>
