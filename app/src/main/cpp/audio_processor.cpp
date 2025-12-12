@@ -2,6 +2,11 @@
 #include <android/log.h>
 #include <cstring>
 
+// Define M_PI for cross-platform compatibility
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
+
 #define LOG_TAG "VoiceLabNative"
 #define LOGI(...) __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
 #define LOGE(...) __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, __VA_ARGS__)
@@ -111,7 +116,7 @@ float AudioProcessor::testProcessing() {
     const float amplitude = 0.5f;
     
     for (int i = 0; i < testSize; i++) {
-        float t = static_cast<float>(i) / sampleRate;
+        float t = static_cast<float>(i) / static_cast<float>(sampleRate);
         inputBuffer[i] = amplitude * std::sin(2.0f * M_PI * frequency * t);
     }
     

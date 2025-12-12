@@ -16,9 +16,14 @@ class MainActivity : AppCompatActivity() {
     
     companion object {
         private const val PERMISSION_REQUEST_CODE = 1001
+        private const val NATIVE_LIB_NAME = "voicelab_native"
         
         init {
-            System.loadLibrary("voicelab_native")
+            try {
+                System.loadLibrary(NATIVE_LIB_NAME)
+            } catch (e: UnsatisfiedLinkError) {
+                android.util.Log.e("MainActivity", "Failed to load native library: ${e.message}")
+            }
         }
     }
     

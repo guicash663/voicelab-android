@@ -32,7 +32,8 @@ android {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.debug  // For GitHub Actions builds
+            // Using debug signing for CI/CD builds. In production, configure proper release signing.
+            signingConfig signingConfigs.debug
         }
         debug {
             minifyEnabled false
